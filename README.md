@@ -3,19 +3,6 @@
 Small event-driven app with FastAPI. When an event is created the API publishes
 `EventCreated` and the subscribers handle it. Data is kept in memory, no DB or broker.
 
-## Diagram
-
-```mermaid
-flowchart TD
-    Client -->|POST /events| API
-    API -->|EventCreated| Publisher
-    Publisher --> NotificationService
-    Publisher --> TicketService
-    NotificationService --> Email
-    NotificationService --> SMS
-    NotificationService --> WhatsApp
-    TicketService --> Reservations[(memory)]
-```
 
 - `main.py` - the endpoints
 - `publisher.py` - publisher + `Subscriber` base class
